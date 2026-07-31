@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {PageHero,PagePhoto,ServiceIcon,Shell} from "../site";
+import {PageHero,ServiceIcon,Shell} from "../site";
 
 const items=[
   ["01","Mecanografía y transcripción","Paso de manuscritos o impresos a un formato digital legible, en máquina de escribir o computadora.","Textos manuscritos · Copias · Cartas · Trabajos personales"],
@@ -12,7 +12,7 @@ const items=[
 
 export default function Servicios(){return <Shell>
   <PageHero kicker="Servicios" title="Cada palabra, en su lugar."><p>Soluciones adaptadas al destino de cada texto. Consulte alcance, disponibilidad y precio.</p></PageHero>
-  <PagePhoto src="/document-workspace.jpg" alt="Espacio de trabajo moderno para preparar documentos digitales" label="Herramientas actuales" caption="Documentos preparados con claridad y cuidado." credit="Fotografía de archivo · Unsplash"/>
+  <figure className="promo-page-image wrap"><img src="/osmany-servicios-promo.png" alt="Servicios profesionales de mecanografía de Osmany Santos Macías"/></figure>
   <section className="section wrap detail-list">{items.map(x=><article key={x[0]}><ServiceIcon n={x[0]}/><div><h2>{x[1]}</h2><p>{x[2]}</p><b className="tags">{x[3]}</b>{x[0]==="05"&&<Link className="text-link" href="/impresion">Conocer impresión y copias →</Link>}{x[0]==="06"&&<Link className="text-link" href="/otros-servicios">Ver otros servicios →</Link>}</div></article>)}</section>
   <section className="mini-cta"><div className="wrap"><h2>¿Tiene un encargo diferente?</h2><p>Explíquelo y reciba una respuesta directa.</p><a className="button cream" href="mailto:osmcfg1966@gmail.com">Hacer una consulta →</a></div></section>
 </Shell>}

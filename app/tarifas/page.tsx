@@ -1,12 +1,33 @@
 import Link from "next/link";
 import {PageHero,Shell} from "../site";
 
-const factors=[["01","Tipo de trabajo","Mecanografía, impresión, fotocopiado, plastificado, encuadernación, digitalización o llenado de formularios."],["02","Envergadura","Cantidad de páginas, copias, documentos, fotografías o formularios que forman parte del encargo."],["03","Complejidad","Estado del original, formato requerido, revisión, restauración, colorización o preparación especial."],["04","Materiales y acabado","Papel, color, tamaño, plastificado, encuadernación y cualquier terminación acordada."],["05","Tiempo de entrega","La duración prevista y la disponibilidad necesaria para completar el trabajo con cuidado."]];
+const factors=[
+  ["01","Tipo de servicio","El cálculo comienza por el servicio que necesita: mecanografía, impresión, fotocopiado, digitalización, plastificado, encuadernación, restauración de fotografías, diseño de modelos de oficina o llenado de formularios."],
+  ["02","Cantidad y extensión","Se tiene en cuenta el número de páginas, copias, documentos, fotografías o formularios. En trabajos grandes, también se revisa si todas las piezas requieren el mismo proceso o diferentes terminaciones."],
+  ["03","Estado y complejidad","Un original claro y ordenado requiere un tratamiento distinto a un manuscrito difícil de leer, una fotografía deteriorada o un documento que necesita correcciones, formato y organización especial."],
+  ["04","Materiales y acabado","El tamaño y tipo de papel, la impresión a color o en blanco y negro, el plastificado, la encuadernación y otras terminaciones forman parte de la cotización."],
+  ["05","Plazo de entrega","La fecha requerida se acuerda antes de comenzar. Los encargos urgentes dependen de la carga de trabajo, la disponibilidad de materiales y el tiempo necesario para entregar un resultado cuidadoso."]
+];
+
+const quoteDetails=[
+  ["Servicio","Explique qué necesita hacer y cuál será el uso final del documento."],
+  ["Cantidad","Indique páginas, copias, fotografías, formularios o ejemplares aproximados."],
+  ["Original","Diga si entrega archivos digitales, hojas impresas, manuscritos o fotografías físicas."],
+  ["Resultado","Señale el formato, tamaño, color, acabado o tipo de archivo que desea recibir."],
+  ["Fecha","Comunique para cuándo lo necesita y si existe alguna fecha de trámite o entrega."]
+];
 
 export default function Tarifas(){return <Shell>
-  <PageHero kicker="Tarifas" title="Un precio para cada encargo."><p>No todos los documentos requieren el mismo trabajo. Cuéntenos qué necesita y recibirá una confirmación antes de comenzar.</p></PageHero>
-  <section className="tariff-images wrap"><figure><img src="/document-workspace.jpg" alt="Preparación digital de documentos en un espacio moderno"/><figcaption>Preparación y formato digital</figcaption></figure><figure><img src="/modern-printing.jpg" alt="Impresión de documentos con equipo multifunción"/><figcaption>Impresión y terminación</figcaption></figure></section>
-  <section className="section wrap"><div className="section-head"><div><span className="kicker">Cómo se calcula</span><h2>Primero entendemos el trabajo.</h2></div><p>El precio se confirma directamente después de conocer estos elementos.</p></div><div className="detail-list">{factors.map(f=><article key={f[0]}><span className="kicker">{f[0]}</span><div><h2>{f[1]}</h2><p>{f[2]}</p></div></article>)}</div></section>
-  <section className="city-quote"><div className="wrap"><blockquote>Explique su necesidad. Osmany le confirmará el alcance, el plazo y el precio.</blockquote><p>Sin compromiso · Antes de comenzar</p></div></section>
-  <section className="mini-cta"><div className="wrap"><h2>Solicite una cotización.</h2><p>Indique el tipo de trabajo, cantidad y fecha en que lo necesita.</p><Link className="button cream" href="/contacto">Escribir a Osmany →</Link></div></section>
+  <PageHero kicker="Tarifas" title="Cada encargo recibe su propia cotización."><p>El precio depende del trabajo real que requiera su solicitud. Explique su necesidad y Osmany confirmará el alcance, el plazo y el importe antes de comenzar.</p></PageHero>
+
+  <section className="tariff-images wrap"><figure><img src="/document-workspace.jpg" alt="Preparación digital de documentos en un espacio moderno"/><figcaption>Preparación, organización y formato digital</figcaption></figure><figure><img src="/modern-printing.jpg" alt="Impresión de documentos con equipo multifunción"/><figcaption>Impresión, copias y terminación</figcaption></figure></section>
+
+  <section className="section wrap"><div className="section-head"><div><span className="kicker">Cómo se calcula</span><h2>Una tarifa justa según el trabajo.</h2></div><p>No se aplica una cifra única a necesidades diferentes. La cotización considera el tiempo, los materiales, la dificultad y el resultado solicitado.</p></div><div className="detail-list">{factors.map(f=><article key={f[0]}><span className="kicker">{f[0]}</span><div><h2>{f[1]}</h2><p>{f[2]}</p></div></article>)}</div></section>
+
+  <section className="tariff-request"><div className="wrap"><div className="section-head"><div><span className="kicker light">Para cotizar mejor</span><h2>¿Qué información debe enviar?</h2></div><p>Puede escribir por teléfono o correo. Si es posible, adjunte una fotografía o muestra legible del material para valorar mejor el trabajo.</p></div><div className="quote-detail-grid">{quoteDetails.map((item,index)=><article key={item[0]}><span>0{index+1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
+
+  <section className="section wrap tariff-process"><div className="section-head"><div><span className="kicker">Confirmación</span><h2>Todo claro antes de empezar.</h2></div><p>La solicitud se revisa primero para evitar sorpresas y definir exactamente qué recibirá.</p></div><ol><li><b>1. Revisión</b><p>Osmany examina la información y, cuando sea necesario, el estado de los originales.</p></li><li><b>2. Acuerdo</b><p>Se confirma el servicio, la cantidad, la terminación, el tiempo estimado y el precio.</p></li><li><b>3. Realización</b><p>El trabajo comienza después de que usted apruebe las condiciones acordadas.</p></li></ol><p className="tariff-note"><strong>Importante:</strong> los trámites migratorios y de ciudadanía pueden requerir documentos adicionales. La asesoría ayuda a preparar y llenar formularios, pero no garantiza decisiones de consulados, registros u otras autoridades.</p></section>
+
+  <section className="city-quote"><div className="wrap"><blockquote>Explique su necesidad. Recibirá una respuesta clara antes de comenzar.</blockquote><p>Cotización previa · Atención personal · Sin compromiso</p></div></section>
+  <section className="mini-cta"><div className="wrap"><h2>Solicite una cotización.</h2><p>Indique el servicio, la cantidad, el estado del original y la fecha en que lo necesita.</p><Link className="button cream" href="/contacto">Escribir a Osmany →</Link></div></section>
 </Shell>}
