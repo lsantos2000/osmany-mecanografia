@@ -99,7 +99,7 @@ if ($LASTEXITCODE -ne 0) {
   throw "No se pudo consultar la lista de proyectos de Cloudflare Pages.`n$projectList"
 }
 $escapedProjectName = [regex]::Escape($ProjectName)
-$projectExists = $projectList -match "(?m)\|\s*$escapedProjectName\s*\|"
+$projectExists = $projectList -match "(?m)[│|]\s*$escapedProjectName\s*[│|]"
 if (-not $projectExists) {
   Write-Host "El proyecto no existe; se creará una sola vez." -ForegroundColor Yellow
   Invoke-Native npx wrangler pages project create $ProjectName --production-branch $ProductionBranch
