@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "osmany-mecanografia",
+  "pages_build_output_dir": "./work/pages-dist",
+  "compatibility_date": "2026-07-31",
+  "compatibility_flags": ["nodejs_compat"]
+}
