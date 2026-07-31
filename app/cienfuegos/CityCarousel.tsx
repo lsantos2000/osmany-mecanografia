@@ -2,6 +2,7 @@
 import {useState} from "react";
 
 const photos=[
+  {src:"/cienfuegos-01.jpg",alt:"Escena urbana de Cienfuegos compartida por Osmany",caption:"Cienfuegos, ciudad de historia, luz y orgullo cotidiano.",credit:"Fotografía pública compartida por Osmany"},
   {src:"/cienfuegos-05.jpg",alt:"Atardecer rosado sobre una calle de Cienfuegos",caption:"Un cielo rosado al caer la tarde en Cienfuegos.",credit:"Fotografía pública compartida por Osmany"},
   {src:"/cienfuegos-08.jpg",alt:"Gran árbol y calle tranquila de Cienfuegos",caption:"La sombra de un gran árbol sobre una mañana tranquila.",credit:"Fotografía pública compartida por Osmany"},
   {src:"/cienfuegos-09.jpg",alt:"Colección de plantas verdes cuidada en un patio cienfueguero",caption:"El verde y el cuidado cotidiano de un patio de la ciudad.",credit:"Fotografía pública compartida por Osmany"},
