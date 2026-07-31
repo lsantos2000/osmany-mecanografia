@@ -99,7 +99,9 @@ if ($LASTEXITCODE -ne 0) {
   throw "No se pudo consultar la lista de proyectos de Cloudflare Pages.`n$projectList"
 }
 $escapedProjectName = [regex]::Escape($ProjectName)
-$projectExists = $projectList -match "(?m)[│|]\s*$escapedProjectName\s*[│|]"
+# Use only ASCII in this expression so Windows PowerShell 5.1 can parse the
+# script even when it reads a UTF-8 file using the legacy system code page.
+$projectExists = $projectList -match "(?m)(^|\s)$escapedProjectName(\s|$)"
 if (-not $projectExists) {
   Write-Host "El proyecto no existe; se creará una sola vez." -ForegroundColor Yellow
   Invoke-Native npx wrangler pages project create $ProjectName --production-branch $ProductionBranch
