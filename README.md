@@ -177,6 +177,6 @@ npx wrangler pages deploy work/pages-dist --project-name osmany-mecanografia --b
 
 ## Contact
 
-- Phone: `(043) 524229`
+- Phone: `+53 5312 5866`
 - Email: `osmcfg1966@gmail.com`
 - Address: Ave. 64 No. 3508, Cienfuegos, Cuba 55100
