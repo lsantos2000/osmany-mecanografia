@@ -4,7 +4,7 @@ import {BusinessCard,Footer,Header,ServiceIcon} from "./site";
 export default function Home(){return <main><Header/>
   <section className="hero wrap">
     <div><div className="eyebrow">Mecanografía profesional · Cienfuegos</div><h1>Sus documentos,<br/><em>bien hechos.</em></h1><p className="lead">Precisión, claridad y atención personal para convertir manuscritos, formularios y textos en documentos limpios, ordenados y listos para entregar.</p><div className="actions"><a className="button primary" href="mailto:osmcfg1966@gmail.com">Solicitar un trabajo →</a><Link className="button text" href="/servicios">Ver servicios</Link></div></div>
-    <div className="hero-card"><img src="/og.png" alt="Tarjeta gráfica de Osmany Santos Macías, mecanografía profesional en Cienfuegos"/></div>
+    <div className="hero-card promo-card"><img src="/osmany-mecanografia-promo.png" alt="Osmany Santos Macías Mecanografía: velocidad, precisión y confianza al escribir"/></div>
   </section>
   <div className="trust"><div className="wrap"><span>Cienfuegos</span><i>◆</i><span>Atención personal</span><i>◆</i><span>Máquina + computadora</span></div></div>
   <section className="visual-proof wrap"><figure><img src="/osmany-santos.png" alt="Retrato de Osmany Santos Macías"/><figcaption>Osmany Santos Macías, atención personal desde Cienfuegos.</figcaption></figure><div><span className="kicker">Contacto profesional</span><h2>Guarde la tarjeta de Osmany.</h2><p>Úsela para solicitar su próximo documento, consultar disponibilidad o compartir el servicio con quien lo necesite.</p><BusinessCard/><Link className="arrow-link" href="/tarjeta">Ver todos los datos de contacto →</Link></div></section>
