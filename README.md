@@ -104,6 +104,22 @@ npx wrangler pages deploy work/pages-dist --project-name osmany-mecanografia --b
 - Tailwind CSS 4
 - Cloudflare deployment output
 
+## Publicación automática / Automated publishing
+
+Desde PowerShell, ejecute el siguiente comando en la raíz del proyecto. El script compila, confirma y empuja los cambios a GitHub, crea el proyecto de Cloudflare Pages solo cuando no existe y, en ejecuciones posteriores, publica una actualización.
+
+From PowerShell, run the following command in the project root. The script builds, commits and pushes changes to GitHub, creates the Cloudflare Pages project only when it does not exist, and deploys updates on later runs.
+
+```powershell
+.\scripts\publish.ps1
+```
+
+Mensaje de commit personalizado / Custom commit message:
+
+```powershell
+.\scripts\publish.ps1 -CommitMessage "Actualizar contenido"
+```
+
 ## Contact
 
 - Phone: `(043) 524229`
