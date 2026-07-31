@@ -20,6 +20,9 @@ El sitio presenta los servicios, el perfil profesional, el proceso de trabajo, u
 - `/proceso` — Proceso detallado, preparación y criterios de calidad
 - `/tarjeta` — Tarjeta de presentación y contacto
 - `/contacto` — Teléfono, correo, dirección y horario publicado
+- `/cienfuegos` — Orgullo cienfueguero y fotografías compartidas por Osmany
+- `/otros-servicios` — Digitalización, formularios, restauración y modelos de oficina
+- `/tarifas` — Factores que determinan el precio y solicitud de cotización
 
 ### Fuentes y precisión
 
@@ -122,6 +125,9 @@ This website presents the services, professional profile, working process, conta
 - `/proceso` — Detailed workflow, preparation, and quality standards
 - `/tarjeta` — Business card and contact details
 - `/contacto` — Phone, email, address, and published hours
+- `/cienfuegos` — Osmany's connection to Cienfuegos and his city photographs
+- `/otros-servicios` — Digitization, forms, photo restoration, and office templates
+- `/tarifas` — Pricing factors and quote requests
 
 ### Sources and accuracy
 
