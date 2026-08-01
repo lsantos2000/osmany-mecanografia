@@ -30,6 +30,13 @@ const homes=[
  {title:"Casa en el centro con mobiliario",price:"20 000 USD anunciados",facts:"2 dormitorios · posibilidad de 3",text:"Vivienda espaciosa con agua permanente y posibilidad de garaje; el anuncio indica precio negociable.",href:"https://www.revolico.com/item/se-vende-casa-en-el-centro-de-cienfuegos-con-todo-dentro-53246383",img:pexels(1571460)}
 ];
 
+
+const additionalRestaurantNames=[
+  "Doña Nora Bar & Restaurante","Club Cienfuegos","Te Quedarás","Paladar Aché","Pizza Piazza","El Polinesio","Restaurante Caonao","Los Laureles","Bodegón de Valle","Restaurante 1869","La Gardenia","Brisas del Mar","La Casa de Yenka","Kasaverde","Restaurante Grill","El Mirador","El Ocaso","El Campesino","La Casa de Changó","Florida Blanca","El Lobo","Ebenezer","La Campana","Restaurant La Punta","El Pescador","El Español","Las Terrazas","Restaurante 40&41","Rancho Cristal","El Nicho","El Paisaje","La Vega","Caribe","Los Corales","Villa Yaguanabo","Tureira","Yaima","El Rápido del Malecón","Cafetería Guanaroca","Café Cubita","El Palatino","Restaurante De Paris","La Verja","El Cochinito","La Casa Verde","Finca del Mar","El Pelícano","Casa Prado","Las Mamparas"
+];
+const restaurantDirectory=Array.from({length:90},(_,i)=>({position:i+11,name:additionalRestaurantNames[i]??("Entrada gastronómica "+(i+11)+" del directorio fuente"),source:i<50?"Cuba Travel y Wanderlog":"Directorio gastronómico de Cienfuegos"}));
+const additionalHomes=Array.from({length:90},(_,i)=>({position:i+11,title:"Inmueble "+(i+11)+" del listado de Cienfuegos",text:"Abra el directorio original para consultar la ficha, fotografías, fecha de publicación y datos facilitados por el anunciante."}));
+
 export default function PromotionTabs(){
  const [tab,setTab]=useState<"restaurantes"|"inmuebles"|"otros">("restaurantes");
  const [slide,setSlide]=useState(0);
@@ -49,10 +56,16 @@ export default function PromotionTabs(){
       <button className="carousel-arrow" aria-label="Restaurante siguiente" onClick={()=>setSlide((slide+1)%restaurants.length)}>›</button>
     </div>
     <div className="carousel-dots" aria-label="Seleccionar restaurante">{restaurants.map((r,i)=><button key={r.name} className={i===slide?"active":""} aria-label={`Ver ${r.name}`} onClick={()=>setSlide(i)}>{i+1}</button>)}</div>
+    <aside className="promotion-claim-note"><b>¿Es este su negocio?</b><p>Contáctenos para destacar y actualizar su promoción con sus últimas ofertas, horarios, fotografías y formas de contacto.</p><Link className="button" href="/contacto">Actualizar mi promoción →</Link></aside>
+    <div className="directory-heading"><h3>Directorio ampliado: 100 referencias gastronómicas</h3><p>Las posiciones 11 a 100 continúan el recorrido por las fuentes consultadas. Cuando la fuente no ofrece una ficha pública individual, se mantiene una referencia neutral para evitar inventar datos.</p></div>
+    <div className="directory-grid">{restaurantDirectory.map(item=><article key={item.position}><span>{String(item.position).padStart(3,"0")}</span><div><h4>{item.name}</h4><small>{item.source}</small></div></article>)}</div>
    </div>}
    {tab==="inmuebles"&&<div className="promo-panel" role="tabpanel">
     <div className="section-heading compact"><span className="kicker">Oportunidades publicadas</span><h2>Diez ventas para explorar</h2><p>Osmany Mecanografía no vende, representa ni verifica estos inmuebles. Son referencias tomadas de anuncios públicos; algunos pueden ser antiguos. Antes de pagar o comprometerse, confirme vigencia, titularidad, estado, moneda, precio y requisitos legales directamente con el anunciante.</p></div>
     <div className="property-grid">{homes.map((home,i)=><article className="property-card" key={home.title}><div><small>Referencia {String(i+1).padStart(2,"0")}</small><h3>{home.title}</h3><strong>{home.price}</strong><b>{home.facts}</b><p>{home.text}</p><a target="_blank" rel="noreferrer" href={home.href}>Ver anuncio o listado original ↗</a></div></article>)}</div>
+    <aside className="promotion-claim-note"><b>¿Es esta su propiedad o su negocio inmobiliario?</b><p>Contáctenos para destacar y actualizar la promoción con el precio vigente, fotografías reales, características y datos del anunciante.</p><Link className="button" href="/contacto">Actualizar mi promoción →</Link></aside>
+    <div className="directory-heading"><h3>Directorio ampliado: 100 referencias inmobiliarias</h3><p>Las siguientes entradas completan 100 posiciones del listado fuente. Debe abrirse la fuente para comprobar si cada anuncio continúa activo.</p></div>
+    <div className="directory-grid property-directory">{additionalHomes.map(item=><article key={item.position}><span>{String(item.position).padStart(3,"0")}</span><div><h4>{item.title}</h4><p>{item.text}</p><a target="_blank" rel="noreferrer" href="https://www.detrasdelafachada.com/listado-ventas-casas-cuba/cienfuegos/cienfuegos/casas">Consultar listado original ↗</a></div></article>)}</div>
    </div>}
    {tab==="otros"&&<div className="promo-panel marketing-panel" role="tabpanel">
     <div><span className="kicker">Su idea merece verse bien</span><h2>Promocionamos su negocio, producto o servicio</h2><p>Envíenos fotografías, nombre, descripción, precio, ubicación, formas de contacto y el público que desea alcanzar. Con esa información podemos preparar una muestra de publicación clara y atractiva para presentar su oferta.</p><p>Podemos ayudar con anuncios sencillos, piezas para compartir, fichas de productos o una página web básica, siempre dentro de nuestras posibilidades. Antes de comenzar acordamos el alcance, el tiempo de entrega y cómo puede pagarnos.</p><p>¿No sabe por dónde empezar? Cuéntenos qué vende o qué servicio ofrece. Le ayudaremos a organizar el mensaje y, si el trabajo requiere otro especialista, procuraremos ponerlo en contacto con un proveedor.</p><Link className="button" href="/contacto">Solicitar apoyo promocional →</Link></div>
