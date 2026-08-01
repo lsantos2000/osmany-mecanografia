@@ -40,7 +40,9 @@ const additionalHomes=Array.from({length:90},(_,i)=>({position:i+11,title:"Inmue
 export default function PromotionTabs(){
  const [tab,setTab]=useState<"restaurantes"|"inmuebles"|"otros">("restaurantes");
  const [slide,setSlide]=useState(0);
+ const [houseSlide,setHouseSlide]=useState(0);
  const restaurant=restaurants[slide];
+ const home=homes[houseSlide];
  return <section className="promo-section"><div className="wrap">
    <div className="service-tabs promo-tabs" role="tablist" aria-label="Categorías de promociones">
     <button role="tab" aria-selected={tab==="restaurantes"} onClick={()=>setTab("restaurantes")}>Restaurantes</button>
@@ -62,7 +64,13 @@ export default function PromotionTabs(){
    </div>}
    {tab==="inmuebles"&&<div className="promo-panel" role="tabpanel">
     <div className="section-heading compact"><span className="kicker">Oportunidades publicadas</span><h2>Diez ventas para explorar</h2><p>Osmany Mecanografía no vende, representa ni verifica estos inmuebles. Son referencias tomadas de anuncios públicos; algunos pueden ser antiguos. Antes de pagar o comprometerse, confirme vigencia, titularidad, estado, moneda, precio y requisitos legales directamente con el anunciante.</p></div>
-    <div className="property-grid">{homes.map((home,i)=><article className="property-card" key={home.title}><div><small>Referencia {String(i+1).padStart(2,"0")}</small><h3>{home.title}</h3><strong>{home.price}</strong><b>{home.facts}</b><p>{home.text}</p><a target="_blank" rel="noreferrer" href={home.href}>Ver anuncio o listado original ↗</a></div></article>)}</div>
+    <div className="restaurant-carousel house-carousel">
+      <button className="carousel-arrow" aria-label="Propiedad anterior" onClick={()=>setHouseSlide((houseSlide+homes.length-1)%homes.length)}>‹</button>
+      <div className="house-placeholder" role="img" aria-label="Icono genérico de una casa; consulte la fuente para ver fotografías reales"><span>⌂</span><b>Imagen de la propiedad</b><small>Consulte el anuncio original</small></div>
+      <div className="carousel-copy"><span>{String(houseSlide+1).padStart(2,"0")} / {homes.length}</span><h3>{home.title}</h3><strong>{home.price}</strong><b>{home.facts}</b><p>{home.text}</p><a className="button" target="_blank" rel="noreferrer" href={home.href}>Ver fotografías y anuncio original ↗</a></div>
+      <button className="carousel-arrow" aria-label="Propiedad siguiente" onClick={()=>setHouseSlide((houseSlide+1)%homes.length)}>›</button>
+    </div>
+    <div className="carousel-dots" aria-label="Seleccionar propiedad">{homes.map((item,i)=><button key={item.title} className={i===houseSlide?"active":""} aria-label={"Ver "+item.title} onClick={()=>setHouseSlide(i)}>{i+1}</button>)}</div>
     <aside className="promotion-claim-note"><b>¿Es esta su propiedad o su negocio inmobiliario?</b><p>Contáctenos para destacar y actualizar la promoción con el precio vigente, fotografías reales, características y datos del anunciante.</p><Link className="button" href="/contacto">Actualizar mi promoción →</Link></aside>
     <div className="directory-heading"><h3>Directorio ampliado: 100 referencias inmobiliarias</h3><p>Las siguientes entradas completan 100 posiciones del listado fuente. Debe abrirse la fuente para comprobar si cada anuncio continúa activo.</p></div>
     <div className="directory-grid property-directory">{additionalHomes.map(item=><article key={item.position}><span>{String(item.position).padStart(3,"0")}</span><div><h4>{item.title}</h4><p>{item.text}</p><a target="_blank" rel="noreferrer" href="https://www.detrasdelafachada.com/listado-ventas-casas-cuba/cienfuegos/cienfuegos/casas">Consultar listado original ↗</a></div></article>)}</div>
