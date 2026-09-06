@@ -4,6 +4,11 @@ Sitio web profesional de **Osmany Santos Macías**, servicio de mecanografía y 
 
 Professional website for **Osmany Santos Macías**, a typing and document-preparation service in Cienfuegos, Cuba.
 
+GitHub link: https://github.com/lsantos2000/osmany-mecanografia
+
+Cloudflare deployment (dev) link: https://osmany-mecanografia.pages.dev/
+
+ChatGPT Sites link: https://osmany-mecanografia-cienfuegos.leonardosantosmacias.chatgpt.site/
 ---
 
 ## Español
